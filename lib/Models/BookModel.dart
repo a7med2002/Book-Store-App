@@ -1,4 +1,3 @@
-
 class BookModel {
   String? id;
   String? title;
