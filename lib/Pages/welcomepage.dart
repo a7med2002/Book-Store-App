@@ -1,5 +1,7 @@
-import 'package:book_store/Widgets/primaryButton.dart';
+import 'package:book_store/Component/primaryButton.dart';
+import 'package:book_store/Pages/Home%20Page/Homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -55,7 +57,11 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          PrimaryButton(title: "CONTINUE", onTap: () {})
+          PrimaryButton(
+              title: "CONTINUE",
+              onTap: () {
+                Get.offAll(() => HomePage());
+              })
         ],
       ),
     );
