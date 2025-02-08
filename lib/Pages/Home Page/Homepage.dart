@@ -1,10 +1,12 @@
 import 'package:book_store/Component/bookCard.dart';
 import 'package:book_store/Component/bookTile.dart';
 import 'package:book_store/Models/data.dart';
+import 'package:book_store/Pages/Book%20Details/bookDetails.dart';
 import 'package:book_store/Pages/Home%20Page/Widgets/categoryWidget.dart';
 import 'package:book_store/Pages/Home%20Page/Widgets/homeAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -97,7 +99,9 @@ class HomePage extends StatelessWidget {
                           return BookCard(
                               title: element.title!,
                               bookUrl: element.bookurl!,
-                              onTap: () {});
+                              onTap: () {
+                                Get.to(() => BookDetails());
+                              });
                         },
                       ).toList(),
                     ),
@@ -117,7 +121,9 @@ class HomePage extends StatelessWidget {
                               price: element.price!,
                               rating: element.rating!,
                               numberOfRating: element.numberOfRating!,
-                              onTap: () {},
+                              onTap: () {
+                                Get.to(() => BookDetails());
+                              },
                             ))
                         .toList(),
                   )
