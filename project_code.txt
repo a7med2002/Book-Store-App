@@ -1,0 +1,1513 @@
+===== D:\Android\Book-Store-App\analysis_options.yaml =====
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  # The lint rules applied to this project can be customized in the
+  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
+  # included above or to enable additional rules. A list of all available lints
+  # and their documentation is published at https://dart.dev/lints.
+  #
+  # Instead of disabling a lint rule for the entire project in the
+  # section below, it can also be suppressed for a single line of code
+  # or a specific dart file by using the `// ignore: name_of_lint` and
+  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
+  # producing the lint.
+  rules:
+    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
+    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
+===== D:\Android\Book-Store-App\pubspec.yaml =====
+name: book_store
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.1
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  get: ^4.6.6
+  flutter_svg: ^2.0.17
+  syncfusion_flutter_pdfviewer: ^28.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - Assets/Images/
+    - Assets/Icons/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: Assets/Fonts/Poppins-Medium.ttf
+          weight: 400
+        - asset: Assets/Fonts/Poppins-Regular.ttf
+          weight: 500
+        - asset: Assets/Fonts/Poppins-SemiBold.ttf
+          weight: 600
+
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
+===== D:\Android\Book-Store-App\android\app\src\debug\AndroidManifest.xml =====
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The INTERNET permission is required for development. Specifically,
+         the Flutter tool needs it to communicate with the running application
+         to allow setting breakpoints, to provide hot reload, etc.
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
+===== D:\Android\Book-Store-App\android\app\src\main\AndroidManifest.xml =====
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="book_store"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>
+===== D:\Android\Book-Store-App\android\app\src\main\res\drawable\launch_background.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
+
+    <!-- You can insert your own image assets here -->
+    <!-- <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/launch_image" />
+    </item> -->
+</layer-list>
+===== D:\Android\Book-Store-App\android\app\src\main\res\drawable-v21\launch_background.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="?android:colorBackground" />
+
+    <!-- You can insert your own image assets here -->
+    <!-- <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/launch_image" />
+    </item> -->
+</layer-list>
+===== D:\Android\Book-Store-App\android\app\src\main\res\values\styles.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Show a splash screen on the activity. Automatically removed when
+             the Flutter engine draws its first frame -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the process has started.
+         This theme determines the color of the Android Window while your
+         Flutter UI initializes, as well as behind your Flutter UI while its
+         running.
+
+         This Theme is only used starting with V2 of Flutter's Android embedding. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>
+===== D:\Android\Book-Store-App\android\app\src\main\res\values-night\styles.xml =====
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is on -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <!-- Show a splash screen on the activity. Automatically removed when
+             the Flutter engine draws its first frame -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the process has started.
+         This theme determines the color of the Android Window while your
+         Flutter UI initializes, as well as behind your Flutter UI while its
+         running.
+
+         This Theme is only used starting with V2 of Flutter's Android embedding. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>
+===== D:\Android\Book-Store-App\android\app\src\profile\AndroidManifest.xml =====
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The INTERNET permission is required for development. Specifically,
+         the Flutter tool needs it to communicate with the running application
+         to allow setting breakpoints, to provide hot reload, etc.
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
+===== D:\Android\Book-Store-App\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json =====
+{
+  "images" : [
+    {
+      "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-20x20@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-20x20@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-29x29@1x.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-29x29@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-29x29@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-40x40@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-40x40@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-60x60@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "Icon-App-60x60@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-20x20@1x.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-20x20@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-29x29@1x.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-29x29@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-40x40@1x.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-40x40@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-76x76@1x.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-76x76@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "Icon-App-83.5x83.5@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "Icon-App-1024x1024@1x.png",
+      "scale" : "1x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
+===== D:\Android\Book-Store-App\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json =====
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "LaunchImage.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "LaunchImage@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "LaunchImage@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
+===== D:\Android\Book-Store-App\lib\main.dart =====
+import 'package:book_store/Config/themes.dart';
+import 'package:book_store/Pages/welcomepage.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme,
+      title: 'Book Store',
+      home: const WelcomePage(),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Component\bookCard.dart =====
+import 'package:flutter/material.dart';
+
+class BookCard extends StatelessWidget {
+  final String title;
+  final String bookUrl;
+  final VoidCallback onTap;
+  const BookCard(
+      {super.key,
+      required this.title,
+      required this.bookUrl,
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 20),
+        child: SizedBox(
+          width: 125,
+          height: 230,
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.1),
+                        offset: Offset(2, 2),
+                        blurRadius: 7,
+                        spreadRadius: 5,
+                      )
+                    ]),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(bookUrl, width: 120, height: 180),
+                ),
+              ),
+              SizedBox(height: 5),
+              Text(title,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Component\bookTile.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class BookTile extends StatelessWidget {
+  final String title;
+  final String bokkUrl;
+  final String author;
+  final int price;
+  final double rating;
+  final int numberOfRating;
+  final VoidCallback onTap;
+  const BookTile(
+      {super.key,
+      required this.title,
+      required this.bokkUrl,
+      required this.author,
+      required this.price,
+      required this.rating,
+      required this.numberOfRating,
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 15),
+        child: Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.1)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.2),
+                        offset: Offset(2, 2),
+                        blurRadius: 7,
+                        spreadRadius: 2,
+                      )
+                    ]),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(bokkUrl, width: 120, height: 180),
+                ),
+              ),
+              SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, maxLines: 2, style: Theme.of(context).textTheme.bodyLarge),
+                    SizedBox(height: 10),
+                    Text("By: $author",
+                        style: Theme.of(context).textTheme.labelMedium),
+                    SizedBox(height: 16),
+                    Text("Price: Free",
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium!
+                            .copyWith(
+                                color:
+                                    Theme.of(context).colorScheme.secondary)),
+                    SizedBox(height: 16),
+                    Row(
+                      children: [
+                        SvgPicture.asset(
+                          "Assets/Icons/star-svgrepo-com.svg",
+                          width: 20,
+                          height: 20,
+                        ),
+                        SizedBox(width: 5),
+                        Text("$rating",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium!
+                                .copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onBackground)),
+                        SizedBox(width: 5),
+                        Text("($numberOfRating ratings)",
+                            style: Theme.of(context).textTheme.labelMedium)
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Component\myBackButton.dart =====
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class MyBackbutton extends StatelessWidget {
+  const MyBackbutton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_ios_outlined),
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
+        Text("Back",
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge!
+                .copyWith(color: Theme.of(context).colorScheme.onPrimary))
+      ],
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Component\primaryButton.dart =====
+import 'package:flutter/material.dart';
+
+class PrimaryButton extends StatelessWidget {
+  final String title;
+  final VoidCallback onTap;
+  const PrimaryButton({super.key, required this.title, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.all(10),
+        width: 1000,
+        height: 50,
+        decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary,
+            borderRadius: BorderRadius.circular(10)),
+        child: Center(
+          child: Text(
+            textAlign: TextAlign.center,
+            title,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: Theme.of(context).colorScheme.background),
+          ),
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Config\colors.dart =====
+import 'package:flutter/material.dart';
+
+const primaryColor = Color(0xFF0057FF);
+const secondryColor = Color(0xFF00C236);
+const backgroundColor = Color(0xFFFFFFFF);
+const fontColor = Color(0xFF000000);
+const labelColor = Color(0xFF6B6B6B);
+===== D:\Android\Book-Store-App\lib\Config\themes.dart =====
+import 'package:book_store/Config/colors.dart';
+import 'package:flutter/material.dart';
+
+var lightTheme = ThemeData(
+  brightness: Brightness.light,
+  useMaterial3: true,
+
+//Color Style Define
+  colorScheme: ColorScheme(
+      brightness: Brightness.light,
+      primary: primaryColor,
+      onPrimary: backgroundColor,
+      secondary: secondryColor,
+      onSecondary: backgroundColor,
+      error: Colors.red,
+      onError: fontColor,
+      background: backgroundColor,
+      onBackground: fontColor,
+      surface: backgroundColor,
+      onSurface: fontColor),
+
+//Text Style Define
+  textTheme: TextTheme(
+    headlineLarge: TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 30,
+      fontWeight: FontWeight.w600,
+    ),
+    headlineMedium: TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+    ),
+    bodyLarge: TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+    ),
+    bodyMedium: TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 15,
+      fontWeight: FontWeight.w500,
+    ),
+    bodySmall: TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    ),
+    labelLarge: TextStyle(
+        fontFamily: "Poppins",
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
+        color: labelColor),
+    labelMedium: TextStyle(
+        fontFamily: "Poppins",
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        color: labelColor),
+    labelSmall: TextStyle(
+        fontFamily: "Poppins",
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: labelColor),
+  ),
+);
+===== D:\Android\Book-Store-App\lib\Controller\pdfController.dart =====
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
+class PdfController extends GetxController {
+    final GlobalKey<SfPdfViewerState> pdfViewerKey = GlobalKey();
+
+    @override
+  void onInit() {
+    super.onInit();
+  }
+}
+===== D:\Android\Book-Store-App\lib\Models\BookModel.dart =====
+class BookModel {
+  String? id;
+  String? title;
+  String? description;
+  double? rating;
+  int? pages;
+  String? language;
+  String? audioLen;
+  String? author;
+  String? aboutAuthor;
+  String? bookurl;
+  String? audiourl;
+  String? category;
+  int? price;
+  int? numberOfRating;
+
+  BookModel({this.id, this.title, this.description, this.rating, this.pages, this.language, this.audioLen, this.author, this.aboutAuthor, this.bookurl, this.audiourl, this.category, this.price, this.numberOfRating});
+
+  BookModel.fromJson(Map<String, dynamic> json) {
+    if(json["id"] is String) {
+      id = json["id"];
+    }
+    if(json["title"] is String) {
+      title = json["title"];
+    }
+    if(json["description"] is String) {
+      description = json["description"];
+    }
+    if(json["rating"] is double) {
+      rating = json["rating"];
+    }
+    if(json["pages"] is int) {
+      pages = json["pages"];
+    }
+    if(json["language"] is String) {
+      language = json["language"];
+    }
+    if(json["audioLen"] is String) {
+      audioLen = json["audioLen"];
+    }
+    if(json["author"] is String) {
+      author = json["author"];
+    }
+    if(json["aboutAuthor"] is String) {
+      aboutAuthor = json["aboutAuthor"];
+    }
+    if(json["bookurl"] is String) {
+      bookurl = json["bookurl"];
+    }
+    if(json["audiourl"] is String) {
+      audiourl = json["audiourl"];
+    }
+    if(json["category"] is String) {
+      category = json["category"];
+    }
+    if(json["price"] is int) {
+      price = json["price"];
+    }
+    if(json["numberOfRating"] is int) {
+      numberOfRating = json["numberOfRating"];
+    }
+  }
+
+  static List<BookModel> fromList(List<Map<String, dynamic>> list) {
+    return list.map(BookModel.fromJson).toList();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["id"] = id;
+    _data["title"] = title;
+    _data["description"] = description;
+    _data["rating"] = rating;
+    _data["pages"] = pages;
+    _data["language"] = language;
+    _data["audioLen"] = audioLen;
+    _data["author"] = author;
+    _data["aboutAuthor"] = aboutAuthor;
+    _data["bookurl"] = bookurl;
+    _data["audiourl"] = audiourl;
+    _data["category"] = category;
+    _data["price"] = price;
+    _data["numberOfRating"] = numberOfRating;
+    return _data;
+  }
+}
+===== D:\Android\Book-Store-App\lib\Models\data.dart =====
+import 'package:book_store/Models/BookModel.dart';
+
+var dataCategory = [
+  {"bathIcon": "Assets/Icons/heart-svgrepo-com.svg", "label": "Romance"},
+  {"bathIcon": "Assets/Icons/flight-plane-svgrepo-com.svg", "label": "Travel"},
+  {"bathIcon": "Assets/Icons/world-1-svgrepo-com.svg", "label": "Documentary"},
+  {"bathIcon": "Assets/Icons/heart-svgrepo-com.svg", "label": "Love Story"}
+];
+
+var dataBook = [
+  BookModel(
+      id: '1',
+      title: "Living in The light",
+      language: "ENG",
+      category: "Documetary",
+      bookurl: "Assets/Images/living in The light.jpg",
+      author: "Norman Cousins",
+      pages: 344,
+      description:
+          "Just as there is no loss of basic energy in the universe, so no thought or action is without its effects, present or ultimate, seen or unseen, felt or unfelt",
+      price: 100,
+      rating: 3.4,
+      aboutAuthor:
+          "Just as there is no loss of basic energy in the universe, so no thought",
+      audioLen: "3",
+      audiourl: "aaaaaaaaaaaaaaa",
+      numberOfRating: 50),
+  BookModel(
+      id: '2',
+      title: "Give and Take",
+      language: "ENG",
+      category: "Documetary",
+      bookurl: "Assets/Images/Give and Take.jpg",
+      author: "David Sargent",
+      pages: 258,
+      description:
+          "Just as there is no loss of basic energy in the universe, so no thought or action is without its effects, present or ultimate, seen or unseen, felt or unfelt",
+      price: 80,
+      rating: 3.4,
+      aboutAuthor:
+          "Just as there is no loss of basic energy in the universe, so no thought",
+      audioLen: "3",
+      audiourl: "aaaaaaaaaaaaaaa",
+      numberOfRating: 50),
+  BookModel(
+      id: '3',
+      title: "See You At The Top",
+      language: "ENG",
+      category: "Documetary",
+      bookurl: "Assets/Images/see you at the top.jpg",
+      author: "David Sargent",
+      pages: 258,
+      description:
+          "Just as there is no loss of basic energy in the universe, so no thought or action is without its effects, present or ultimate, seen or unseen, felt or unfelt",
+      price: 80,
+      rating: 3.4,
+      aboutAuthor:
+          "Just as there is no loss of basic energy in the universe, so no thought",
+      audioLen: "3",
+      audiourl: "aaaaaaaaaaaaaaa",
+      numberOfRating: 50),
+  BookModel(
+      id: '4',
+      title: "You Are Not So Smart",
+      language: "ENG",
+      category: "Documetary",
+      bookurl: "Assets/Images/you are not so smart.jpg",
+      author: "David Sargent",
+      pages: 258,
+      description:
+          "Just as there is no loss of basic energy in the universe, so no thought or action is without its effects, present or ultimate, seen or unseen, felt or unfelt",
+      price: 80,
+      rating: 3.4,
+      aboutAuthor:
+          "Just as there is no loss of basic energy in the universe, so no thought",
+      audioLen: "3",
+      audiourl: "aaaaaaaaaaaaaaa",
+      numberOfRating: 50),
+  BookModel(
+      id: '5',
+      title: "You Are Padass",
+      language: "ENG",
+      category: "Documetary",
+      bookurl: "Assets/Images/you are padass.jpg",
+      author: "David Sargent",
+      pages: 258,
+      description:
+          "Just as there is no loss of basic energy in the universe, so no thought or action is without its effects, present or ultimate, seen or unseen, felt or unfelt",
+      price: 80,
+      rating: 3.4,
+      aboutAuthor:
+          "Just as there is no loss of basic energy in the universe, so no thought",
+      audioLen: "3",
+      audiourl: "aaaaaaaaaaaaaaa",
+      numberOfRating: 50),
+];
+===== D:\Android\Book-Store-App\lib\Pages\welcomepage.dart =====
+import 'package:book_store/Component/primaryButton.dart';
+import 'package:book_store/Pages/Home%20Page/Homepage.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(10),
+            width: 1000,
+            height: 550,
+            color: Theme.of(context).colorScheme.primary,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 40),
+                Image.asset(
+                  "Assets/Images/books.png",
+                  width: 250,
+                  height: 230,
+                ),
+                const SizedBox(height: 70),
+                Text("E - Book Store",
+                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.background)),
+                const SizedBox(height: 15),
+                Text(
+                  textAlign: TextAlign.center,
+                  "Here you can find best books in the world, the latgest number of books n the world.",
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: Theme.of(context).colorScheme.background),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 80),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Disciaimer",
+                    textAlign: TextAlign.start,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.onBackground)),
+                SizedBox(height: 15),
+                Text(
+                    "n publishing you can find best books in the world, the latgest number of books n the world, the latgest number of books n the world.",
+                    style: Theme.of(context).textTheme.labelSmall),
+              ],
+            ),
+          ),
+          const Spacer(),
+          PrimaryButton(
+              title: "CONTINUE",
+              onTap: () {
+                Get.offAll(() => HomePage());
+              })
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Pages\Book Details\bookDetails.dart =====
+import 'package:book_store/Pages/Book%20Details/Widgets/bookActionBtn.dart';
+import 'package:book_store/Pages/Book%20Details/Widgets/headerWidget.dart';
+import 'package:flutter/material.dart';
+
+class BookDetails extends StatelessWidget {
+  const BookDetails({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            HeaderWidget(),
+            SizedBox(height: 10),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("About book",
+                      style: Theme.of(context).textTheme.bodyMedium),
+                  SizedBox(height: 8),
+                  Text(
+                      "n puplishing and graphic design, n puplishing in the statre of the book, n puplishing and graphic design, n puplishing in the statre of the book, n puplishing and graphic design.",
+                      style: Theme.of(context).textTheme.labelSmall),
+                  SizedBox(height: 28),
+                  Text("About Author",
+                      style: Theme.of(context).textTheme.bodyMedium),
+                  SizedBox(height: 8),
+                  Text(
+                      "n puplishing and graphic design, n puplishing in the statre of the book, n puplishing and graphic design, n puplishing in the statre of the book, n puplishing and graphic design.",
+                      style: Theme.of(context).textTheme.labelSmall)
+                ],
+              ),
+            ),
+            BookActionButton(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Pages\Book Details\Widgets\bookActionBtn.dart =====
+import 'package:book_store/Config/colors.dart';
+import 'package:book_store/Pages/Book%20Page/bookPage.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+class BookActionButton extends StatelessWidget {
+  const BookActionButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: primaryColor,
+      ),
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      height: 60,
+      width: 1000,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          InkWell(
+            onTap: () {
+              Get.to(() => BookPage());
+            },
+            child: Row(
+              children: [
+                SvgPicture.asset(
+                  "Assets/Icons/book-svgrepo-com.svg",
+                  color: Theme.of(context).colorScheme.background,
+                  height: 32,
+                ),
+                SizedBox(width: 5),
+                Text(
+                  "READ BOOK",
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.background,
+                      letterSpacing: 1.2),
+                )
+              ],
+            ),
+          ),
+          Container(
+              width: 3,
+              height: 32,
+              color: Theme.of(context).colorScheme.background),
+          Row(
+            children: [
+              SvgPicture.asset(
+                "Assets/Icons/play-svgrepo-com.svg",
+                color: Theme.of(context).colorScheme.background,
+                height: 32,
+              ),
+              SizedBox(width: 5),
+              Text(
+                "PLAY BOOK",
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.background,
+                    letterSpacing: 1.2),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Pages\Book Details\Widgets\headerWidget.dart =====
+import 'package:book_store/Component/myBackButton.dart';
+import 'package:book_store/Config/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class HeaderWidget extends StatelessWidget {
+  const HeaderWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+      height: 550,
+      color: primaryColor,
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MyBackbutton(),
+              SvgPicture.asset("Assets/Icons/heart-svgrepo-com.svg",
+                  color: Theme.of(context).colorScheme.background),
+            ],
+          ),
+          SizedBox(height: 40),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                      offset: Offset(8, 8),
+                      blurRadius: 8,
+                      spreadRadius: 5,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onBackground
+                          .withOpacity(0.3))
+                ]),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.asset("Assets/Images/Give and Take.jpg", width: 150),
+            ),
+          ),
+          SizedBox(height: 25),
+          Text("Beach Town : Apocalypse",
+              textAlign: TextAlign.center,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: Theme.of(context).colorScheme.background)),
+          SizedBox(height: 8),
+          Text("Author : N30 ray",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                  color: Theme.of(context)
+                      .colorScheme
+                      .background
+                      .withOpacity(0.7))),
+          SizedBox(height: 20),
+          Text(
+              "n puplishing and graphic design, n puplishing in the statre of the book.",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                  color: Theme.of(context)
+                      .colorScheme
+                      .background
+                      .withOpacity(0.7))),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Text("Rating",
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .background
+                              .withOpacity(0.7))),
+                  SizedBox(height: 5),
+                  Text("4.7",
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: Theme.of(context).colorScheme.background))
+                ],
+              ),
+              Column(
+                children: [
+                  Text("Pages",
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .background
+                              .withOpacity(0.7))),
+                  SizedBox(height: 5),
+                  Text("203",
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: Theme.of(context).colorScheme.background))
+                ],
+              ),
+              Column(
+                children: [
+                  Text("Language",
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .background
+                              .withOpacity(0.7))),
+                  SizedBox(height: 5),
+                  Text("ENG",
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: Theme.of(context).colorScheme.background))
+                ],
+              ),
+              Column(
+                children: [
+                  Text("Audio",
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .background
+                              .withOpacity(0.7))),
+                  SizedBox(height: 5),
+                  Text("2 hr",
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: Theme.of(context).colorScheme.background))
+                ],
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Pages\Book Page\bookPage.dart =====
+import 'package:book_store/Config/colors.dart';
+import 'package:book_store/Controller/pdfController.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
+class BookPage extends StatelessWidget {
+  const BookPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    PdfController pdfConntroller = Get.put(PdfController());
+
+    return Scaffold(
+      appBar: AppBar(
+          leading: BackButton(
+            color: backgroundColor,
+          ),
+          title: Text("book title",
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium!
+                  .copyWith(color: backgroundColor)),
+          centerTitle: true,
+          backgroundColor: primaryColor),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          pdfConntroller.pdfViewerKey.currentState!.openBookmarkView();
+        },
+        child: Icon(Icons.bookmark,
+            color: Theme.of(context).colorScheme.background),
+      ),
+      body: SfPdfViewer.network(
+        'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+        key: pdfConntroller.pdfViewerKey,
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Pages\Home Page\Homepage.dart =====
+import 'package:book_store/Component/bookCard.dart';
+import 'package:book_store/Component/bookTile.dart';
+import 'package:book_store/Models/data.dart';
+import 'package:book_store/Pages/Book%20Details/bookDetails.dart';
+import 'package:book_store/Pages/Home%20Page/Widgets/categoryWidget.dart';
+import 'package:book_store/Pages/Home%20Page/Widgets/homeAppBar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.all(10),
+              color: Theme.of(context).colorScheme.primary,
+              width: 1000,
+              height: 420,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 40),
+                  HomeAppBar(),
+                  SizedBox(height: 60),
+                  Text("Good Morning✌️Nitish",
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.background)),
+                  SizedBox(height: 5),
+                  Text("Teme to read Book and enhance your knowleage",
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: Theme.of(context).colorScheme.background)),
+                  SizedBox(height: 20),
+                  Container(
+                    width: 1000,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.background,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Row(
+                      children: [
+                        SizedBox(width: 15),
+                        SvgPicture.asset(
+                          "Assets/Icons/search-svgrepo-com.svg",
+                          width: 25,
+                          height: 25,
+                        ),
+                        SizedBox(width: 15),
+                        Flexible(
+                            child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Search here ..",
+                              hintStyle:
+                                  Theme.of(context).textTheme.labelMedium),
+                        ))
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text("Topics",
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.background)),
+                  SizedBox(height: 10),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: dataCategory.map((e) {
+                        return CategoryWidget(
+                            iconPath: e['bathIcon']!, label: e['label']!);
+                      }).toList(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Trending",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  SizedBox(height: 10),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: dataBook.map(
+                        (element) {
+                          return BookCard(
+                              title: element.title!,
+                              bookUrl: element.bookurl!,
+                              onTap: () {
+                                Get.to(() => BookDetails());
+                              });
+                        },
+                      ).toList(),
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  Text(
+                    "Your Intrests",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  SizedBox(height: 10),
+                  Column(
+                    children: dataBook
+                        .map((element) => BookTile(
+                              title: element.title!,
+                              bokkUrl: element.bookurl!,
+                              author: element.author!,
+                              price: element.price!,
+                              rating: element.rating!,
+                              numberOfRating: element.numberOfRating!,
+                              onTap: () {
+                                Get.to(() => BookDetails());
+                              },
+                            ))
+                        .toList(),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Pages\Home Page\Widgets\categoryWidget.dart =====
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class CategoryWidget extends StatelessWidget {
+  final String iconPath;
+  final String label;
+  const CategoryWidget(
+      {super.key, required this.iconPath, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        margin: EdgeInsets.only(right: 8),
+        width: 150,
+        height: 50,
+        decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.background,
+            borderRadius: BorderRadius.circular(10)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              iconPath,
+              width: 20,
+              height: 20,
+            ),
+            SizedBox(width: 8),
+            Text(label)
+          ],
+        ),
+      ),
+    );
+  }
+}
+===== D:\Android\Book-Store-App\lib\Pages\Home Page\Widgets\homeAppBar.dart =====
+import 'package:flutter/material.dart';
+
+class HomeAppBar extends StatelessWidget {
+  const HomeAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.dashboard,
+              size: 30,
+            ),
+            color: Theme.of(context).colorScheme.background),
+        Text("E-Book",
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: Theme.of(context).colorScheme.background)),
+        CircleAvatar(
+          backgroundColor: Theme.of(context).colorScheme.error,
+          child: Center(
+              child: Text("A",
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.background))),
+        ),
+      ],
+    );
+  }
+}
+===== D:\Android\Book-Store-App\test\widget_test.dart =====
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:book_store/main.dart';
+
+void main() {
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+
+    // Verify that our counter has incremented.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
+  });
+}
