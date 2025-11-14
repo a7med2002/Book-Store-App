@@ -72,9 +72,16 @@ The app follows a modular and scalable architecture:
 ![app_view2](Assets/Images/book33.png)
 
 ---
+## 📦 Download APK  
+
+You can download the latest version of the **Book Store App** APK directly from Google Drive:  
+
+👉 [**Download Book Store App (APK)**](https://drive.google.com/file/d/1F94wZRymed_w4ZSSDlai87SnPkBXGdsb/view?usp=sharing)  
+
+---
 
 ## 🌐 Social Links
 
 - 👨‍💻 Developer: [ِAhmed Meqdad]
 - 📧 Email: [ahmd2002mqdad@gamil.com]
-- 💼 LinkedIn: [linkedin.com/in/ahmed-meqdad](https://www.linkedin.com/in/ahmed-meqdad)
+- 💼 LinkedIn: [linkedin.com/in/ahmed-meqdad](https://www.linkedin.com/in/ahmedmeqdad0)
